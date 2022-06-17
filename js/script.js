@@ -39,3 +39,34 @@ const ourTeamArray = [
         image: 'barbara-ramos-graphic-designer.jpg'
     },
 ];
+
+//Imposto il ciclo for per creare una card per ogni componente del team
+const TeamContainer = document.querySelector('.team-container');
+
+// Per ogni classe nell'array 
+// stampo una card nel dom
+for(let i = 0; i < ourTeamArray.length; i++) {
+    const thisTeam = ourTeamArray[i];
+
+    //template da inserire nel dom per formare le card 
+    const teamCards = `
+    <div class="team-card">
+
+              <div class="card-image">
+              <img
+                src="${thisTeam.image}"
+                alt="${thisTeam.name}"
+              />
+            </div>
+
+            <div class="card-text">
+              <h3>${thisTeam.name}</h3>
+              <p>${thisTeam.role}</p>
+            </div>
+          
+          </div>
+    `;
+
+    // concatenarlo a teamContainer
+    TeamContainer.innerHTML += teamCards;
+}
